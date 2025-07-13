@@ -14,7 +14,9 @@ html {
 
 body {
   margin: 15px;
-
+  user-select: none;
+  -webkit-user-drag: none;
+  user-drag: none;
   color: #010001;
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
     "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
