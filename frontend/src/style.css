@@ -3,31 +3,34 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 html {
-  background-color: rgb(186, 73, 73);
+  background-color: #eaebeb;
+  /* background-color: rgb(57, 112, 151); */
+  /* background-color: rgb(186, 73, 73); */
   /* text-align: center; */
-  color: white;
+  color: #010001;
 }
 
 body {
   margin: 15px;
 
-  color: white;
-  font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+  color: #010001;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
     "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
 }
 
 @font-face {
-  font-family: "Nunito";
+  font-family: "Inter";
   font-style: normal;
   font-weight: 400;
   src: local(""),
-    url("assets/fonts/nunito-v16-latin-regular.woff2") format("woff2");
+    url("assets/fonts/Inter-VariableFont_opsz\,wght.ttf") format("ttf");
 }
 
 #app {
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
   /* text-align: center; */
 }

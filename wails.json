@@ -1,13 +1,13 @@
 {
   "$schema": "https://wails.io/schemas/config.v2.json",
-  "name": "timer",
-  "outputfilename": "timer",
+  "name": "Pomodoro",
+  "outputfilename": "Pomodoro",
   "frontend:install": "npm install",
   "frontend:build": "npm run build",
   "frontend:dev:watcher": "npm run dev",
   "frontend:dev:serverUrl": "auto",
   "author": {
-    "name": "NissiSolution",
-    "email": "incrediblenissitest@gmail.com"
+    "name": "Muthuraj V",
+    "email": "muthurajkpr8@gmail.com"
   }
 }
