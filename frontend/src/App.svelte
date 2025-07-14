@@ -2,6 +2,7 @@
   import Label from "./components/label.svelte";
   import Nav from "./components/Nav.svelte";
   import { onMount } from "svelte";
+  import Timer from "./components/timer.svelte";
 
   onMount(() => {
     const blockZoomKeys = ["+", "-", "=", "Add", "Subtract"];
@@ -40,6 +41,7 @@
 <main>
   <Nav />
   <Label />
+  <Timer />
 </main>
 
 <style>

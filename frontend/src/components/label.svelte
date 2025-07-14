@@ -39,7 +39,7 @@
     padding: 10px 0;
     cursor: pointer;
     position: relative;
-    color: #444;
+    color: rgb(61, 61, 78);
     transition: color 0.3s ease;
   }
 

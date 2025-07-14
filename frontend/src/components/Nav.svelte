@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount, onDestroy } from "svelte";
-  import { fade, scale } from "svelte/transition";
+  import { fade } from "svelte/transition";
   let isTrue: boolean = false;
   let menuRef: HTMLElement;
   let buttonRef: HTMLElement;
@@ -28,7 +28,7 @@
 </script>
 
 <div id="nav">
-  <div class="lead-heading">Pomodoros</div>
+  <div class="lead-heading">Pomodoro</div>
   <div id="dots" title="Menu">
     <button id="subdots" bind:this={buttonRef} on:click={toggle}>
       <span>____</span><span>&nbsp;&nbsp;__</span>
@@ -74,7 +74,7 @@
     border: none;
     color: none;
     background-color: inherit;
-    font-size: 30px;
+    font-size: 23px;
     font-weight: bolder;
     display: flex;
     flex-direction: column;
@@ -85,7 +85,7 @@
   #show {
     transform-origin: top right;
     position: absolute;
-    top: 40px;
+    top: 30px;
     right: 0;
     z-index: 100;
     margin-top: 0.5rem;
