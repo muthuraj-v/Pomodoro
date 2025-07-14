@@ -38,5 +38,6 @@ body {
 #app {
   max-width: 1000px;
   margin: 0 auto;
+  height: 100dvh;
   /* text-align: center; */
 }

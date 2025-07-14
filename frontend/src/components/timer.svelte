@@ -3,7 +3,7 @@
 </script>
 
 <main id="timer">
-  <div class="number">54</div>
+  <div class="number">01</div>
   <div class="colon">:</div>
   <div class="number">00</div>
 </main>
@@ -12,14 +12,14 @@
 <style>
   #timer {
     color: rgb(61, 61, 78);
-    margin-top: 50px;
+    margin-top: 80px;
     padding: 5px;
     display: flex;
     flex-direction: row;
     align-content: center;
     align-items: center;
     justify-content: center;
-    gap: 30px;
+    gap: 15px;
     font-size: 70px;
     font-weight: 500;
     line-height: 25px;

@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { isPopup } from "./store";
   import { onMount, onDestroy } from "svelte";
   import { fade } from "svelte/transition";
   let isTrue: boolean = false;
@@ -6,6 +7,9 @@
   let buttonRef: HTMLElement;
   function toggle() {
     isTrue = !isTrue;
+    if (!isTrue) {
+      isPopup.set(false);
+    }
   }
   function handleClickOutside(event: MouseEvent) {
     if (
@@ -25,10 +29,14 @@
   onDestroy(() => {
     document.removeEventListener("click", handleClickOutside);
   });
+  function openPopup() {
+    isPopup.set(true);
+    isTrue = false;
+  }
 </script>
 
 <div id="nav">
-  <div class="lead-heading">Pomodoro</div>
+  <div class="lead-heading">Pomodoro+</div>
   <div id="dots" title="Menu">
     <button id="subdots" bind:this={buttonRef} on:click={toggle}>
       <span>____</span><span>&nbsp;&nbsp;__</span>
@@ -37,7 +45,7 @@
     {#if isTrue}
       <div id="show" bind:this={menuRef} transition:fade={{ duration: 150 }}>
         <ul>
-          <li>Settings</li>
+          <li><button on:click={openPopup}>Settings</button></li>
           <li>About</li>
         </ul>
       </div>

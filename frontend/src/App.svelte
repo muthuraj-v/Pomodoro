@@ -3,7 +3,9 @@
   import Nav from "./components/Nav.svelte";
   import { onMount } from "svelte";
   import Timer from "./components/timer.svelte";
-
+  import Popup from "./components/popup.svelte";
+  import { isPopup } from "./components/store";
+  import Footer from "./components/footer.svelte";
   onMount(() => {
     const blockZoomKeys = ["+", "-", "=", "Add", "Subtract"];
 
@@ -42,7 +44,14 @@
   <Nav />
   <Label />
   <Timer />
+  {#if $isPopup}
+    <Popup />
+  {/if}
+  <Footer />
 </main>
 
 <style>
+  main {
+    position: relative;
+  }
 </style>
