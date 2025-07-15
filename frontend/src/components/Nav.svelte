@@ -1,6 +1,7 @@
 <script lang="ts">
   import { isPopup } from "./store";
   import { onMount, onDestroy } from "svelte";
+  import { PopupTap, type PopupType } from "./store";
   import { fade } from "svelte/transition";
   let isTrue: boolean = false;
   let menuRef: HTMLElement;
@@ -29,7 +30,10 @@
   onDestroy(() => {
     document.removeEventListener("click", handleClickOutside);
   });
-  function openPopup() {
+  const tabs: PopupType[] = ["Settings", "About"];
+
+  function openPopup(tab: PopupType) {
+    PopupTap.set(tab);
     isPopup.set(true);
     isTrue = false;
   }
@@ -45,8 +49,11 @@
     {#if isTrue}
       <div id="show" bind:this={menuRef} transition:fade={{ duration: 150 }}>
         <ul>
-          <li><button on:click={openPopup}>Settings</button></li>
-          <li>About</li>
+          {#each tabs as tab}
+            <li>
+              <button on:click={() => openPopup(tab)}>{tab}</button>
+            </li>
+          {/each}
         </ul>
       </div>
     {/if}

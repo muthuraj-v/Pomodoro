@@ -1,4 +1,7 @@
 <script lang="ts">
+  import About from "./About.svelte";
+  import Settings from "./Settings.svelte";
+  import { PopupTap } from "./store";
   import { isPopup } from "./store";
   function closeSettings() {
     isPopup.set(false);
@@ -7,11 +10,23 @@
 
 <main>
   <div id="head">
-    <h4>Settings</h4>
+    <h4>
+      {#if $PopupTap === "Settings"}
+        Settings
+      {:else if $PopupTap === "About"}
+        About
+      {/if}
+    </h4>
     <button class="close" on:click={closeSettings}>✕</button>
   </div>
   <hr />
-  <div id="content"></div>
+  <div id="content">
+    {#if $PopupTap === "Settings"}
+      <Settings />
+    {:else if $PopupTap === "About"}
+      <About />
+    {/if}
+  </div>
 </main>
 
 <style>
@@ -49,7 +64,7 @@
     text-align: center;
   }
   #content {
-    padding: 1.5rem;
+    padding: 1rem;
   }
   .close {
     position: absolute;

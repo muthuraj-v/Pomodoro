@@ -1,9 +1,28 @@
 <script lang="ts">
   import Button from "./button.svelte";
+  import { pomodoro, shortBreak, longBreak, activeTab } from "./store";
+
+  let minutes = 25;
+  $: {
+    switch ($activeTab) {
+      case "Pomodoro":
+        minutes = $pomodoro;
+        break;
+      case "Short Break":
+        minutes = $shortBreak;
+        break;
+      case "Long Break":
+        minutes = $longBreak;
+        break;
+      default:
+        minutes = 25;
+    }
+  }
 </script>
 
 <main id="timer">
-  <div class="number">01</div>
+  <div class="number">{minutes.toString().padStart(2, "0")}</div>
+
   <div class="colon">:</div>
   <div class="number">00</div>
 </main>
