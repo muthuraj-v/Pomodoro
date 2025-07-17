@@ -38,9 +38,11 @@
       window.removeEventListener("gesturestart", onGestureStart);
     };
   });
+  localStorage.setItem("auth", "Hello there!");
 </script>
 
 <main>
+  <!-- svelte-ignore a11y-click-events-have-key-events -->
   <Nav />
   <Label />
   <Timer />

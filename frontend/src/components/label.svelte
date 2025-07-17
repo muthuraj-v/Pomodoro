@@ -1,9 +1,26 @@
 <script lang="ts">
-  import { activeTab, type TabType } from "./store";
+  import {
+    activeTab,
+    buttonClick,
+    pomodoro,
+    shortBreak,
+    longBreak,
+    type TabType,
+  } from "./store";
+  import { get } from "svelte/store";
 
   const tabs: TabType[] = ["Pomodoro", "Short Break", "Long Break"];
 
   function changeTab(tab: TabType) {
+    const currentState = get(buttonClick);
+    if (currentState === "Pause" || currentState === "Resume") {
+      if (tab === "Pomodoro") pomodoro.set(25);
+      else if (tab === "Short Break") shortBreak.set(5);
+      else if (tab === "Long Break") longBreak.set(15);
+
+      buttonClick.set("Start");
+    }
+
     activeTab.set(tab);
   }
 </script>

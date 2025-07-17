@@ -1,66 +1,98 @@
 <script lang="ts">
+  import { pomodoro, shortBreak, longBreak } from "./store";
 </script>
 
-<div id="about">
-  <p>
-    <strong>Pomodoro+</strong> is a lightweight desktop application built on the
-    proven Pomodoro Technique. It helps you manage your time by dividing work into
-    focused intervals followed by regular breaks to keep your mind fresh and productive.
-  </p>
+<div id="settings">
+  <h4>Timer Settings</h4>
+  <p>Set durations (in minutes)</p>
 
-  <h4>How It Works</h4>
-  <ul>
-    <li><strong>Pomodoro:</strong> 25-minute focused work session</li>
-    <li><strong>Short Break:</strong> 5-minute rest after each Pomodoro</li>
-    <li><strong>Long Break:</strong> 15–30 minutes after several Pomodoros</li>
-  </ul>
-
-  <h4>Why Use Pomodoro+</h4>
-  <ul>
-    <li>Improves focus and reduces burnout</li>
-    <li>Encourages structured work habits</li>
-    <li>Simple, distraction-free interface</li>
-    <li>Designed for desktop productivity</li>
-  </ul>
-
-  <h4>Tips for Best Use</h4>
-  <ul>
-    <li>Take a long break after every 4 Pomodoros</li>
-    <li>Use breaks to move, stretch, or rest your eyes</li>
-    <li>Stay consistent to build momentum and rhythm</li>
-  </ul>
-
-  <p>
-    Pomodoro+ is designed to help you work smarter with a minimal, efficient
-    approach to managing your time.
-  </p>
+  <div class="table">
+    <div class="time-setting">
+      <label for="pomodoro">Pomodoro</label>
+      <input
+        id="pomodoro"
+        type="number"
+        min="1"
+        max="59"
+        bind:value={$pomodoro}
+      />
+    </div>
+    <div class="time-setting">
+      <label for="shortbreak">Short Break</label>
+      <input
+        id="shortbreak"
+        type="number"
+        min="1"
+        max="59"
+        bind:value={$shortBreak}
+      />
+    </div>
+    <div class="time-setting">
+      <label for="longbreak">Long Break</label>
+      <input
+        id="longbreak"
+        type="number"
+        min="1"
+        max="59"
+        bind:value={$longBreak}
+      />
+    </div>
+  </div>
 </div>
 
 <style>
-  #about h4 {
-    font-size: 14px;
-    margin-top: 1.2rem;
-    margin-bottom: 0.4rem;
-    color: #666;
-    font-weight: 600;
+  #settings {
+    padding: 1rem;
+    border-radius: 12px;
+
+    font-family: Arial, sans-serif;
   }
 
-  #about p {
-    font-size: 14px;
-    color: #444;
-    line-height: 1.6;
-    margin-bottom: 1rem;
-  }
-
-  #about ul {
-    padding-left: 1.2rem;
-    margin-bottom: 1rem;
-  }
-
-  #about li {
-    font-size: 14px;
-    color: #444;
+  #settings h4 {
+    font-size: 16px;
     margin-bottom: 0.5rem;
-    list-style-type: disc;
+    color: #222;
+    font-weight: 700;
+  }
+
+  #settings p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 1.2rem;
+  }
+
+  .table {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .time-setting {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+  }
+
+  .time-setting label {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+
+  input[type="number"] {
+    width: 70%;
+    padding: 6px 5px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    text-align: center;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+
+  input[type="number"]:focus {
+    border-color: #007bff;
   }
 </style>
