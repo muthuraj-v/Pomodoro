@@ -1,20 +1,18 @@
 <script lang="ts">
   import Button from "./button.svelte";
- // import { pomodoro, shortBreak, longBreak, activeTab } from "./store";
-    let pomodoro=25;
-    let shortBreak=5;
-    let longBreak=15;
+  import { pomodoro, shortBreak, longBreak, activeTab } from "./store";
+
   let minutes = 25;
   $: {
     switch ($activeTab) {
       case "Pomodoro":
-        minutes = pomodoro;
+        minutes = $pomodoro;
         break;
       case "Short Break":
-        minutes = shortBreak;
+        minutes = $shortBreak;
         break;
       case "Long Break":
-        minutes = longBreak;
+        minutes = $longBreak;
         break;
       default:
         minutes = 25;
