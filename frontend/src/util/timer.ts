@@ -41,6 +41,10 @@ export function startCountTown(durationMinutes: number) {
     playTicking();
     if (left <= 0) {
       stopTicking();
+      playSound("dio", 100);
+      setTimeout(() => {
+        stopTicking();
+      }, 4000);
       clearInterval(get(timerInterval)!);
       timerInterval.set(null);
       remainingTime.set(0);
@@ -85,6 +89,10 @@ export function resumeCountdown() {
 
     if (left <= 0) {
       stopTicking();
+      playSound("dio", 100);
+      setTimeout(() => {
+        stopTicking();
+      }, 4000);
       clearInterval(get(timerInterval)!);
       timerInterval.set(null);
       minutes.set(0);
@@ -103,6 +111,7 @@ export function resetCountdown() {
   clearInterval(get(timerInterval)!);
   timerInterval.set(null);
   stopTicking();
+
   value.set(null);
   remainingTime.set(null);
   minutes.set(0);

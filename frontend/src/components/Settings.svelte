@@ -3,15 +3,16 @@
     pomodoro as pomodoroStore,
     shortBreak as shortBreakStore,
     longBreak as longBreakStore,
-    autoStartBreaks as autoStartBreaksStore,
+    // autoStartBreaks as autoStartBreaksStore,
     tickingSound as tickingSoundStore,
     tickingVolume as tickingVolumeStore,
+    isPopup,
   } from "./store";
 
   $: pomodoro = $pomodoroStore;
   $: shortBreak = $shortBreakStore;
   $: longBreak = $longBreakStore;
-  $: autoStartBreaks = $autoStartBreaksStore;
+  // $: autoStartBreaks = $autoStartBreaksStore;
   $: tickingSound = $tickingSoundStore;
   $: tickingVolume = $tickingVolumeStore;
 
@@ -19,9 +20,10 @@
     pomodoroStore.set(pomodoro);
     shortBreakStore.set(shortBreak);
     longBreakStore.set(longBreak);
-    autoStartBreaksStore.set(autoStartBreaks);
+    // autoStartBreaksStore.set(autoStartBreaks);
     tickingSoundStore.set(tickingSound);
     tickingVolumeStore.set(tickingVolume);
+    isPopup.set(false);
   }
 </script>
 
@@ -64,14 +66,14 @@
       />
     </div>
   </div>
-
+  <!-- 
   <div class="toggle">
     <div>Auto Start Breaks</div>
     <label class="switch">
       <input type="checkbox" bind:checked={autoStartBreaks} />
       <span class="slider"></span>
     </label>
-  </div>
+  </div> -->
   <div class="sound-settings">
     <h4>
       <span class="sound-icon">🔊</span>
@@ -159,7 +161,7 @@
   input[type="number"]:focus {
     border-color: #007bff;
   }
-
+  /* 
   .toggle {
     display: flex;
     justify-content: space-between;
@@ -210,7 +212,7 @@
 
   input:checked + .slider:before {
     transform: translateX(18px);
-  }
+  } */
   .sound-settings {
     margin-top: 2rem;
     font-family: Arial, sans-serif;

@@ -14,7 +14,7 @@ export function playSound(fileName: string, volume: number = 100) {
   } else if (fileName === "fast") {
     path = fast;
   } else if (fileName === "dio") {
-    path = fast;
+    path = theworld;
   } else {
     path = interstellar;
   }
