@@ -82,11 +82,11 @@
       <label for="ticking-sound">Ticking Sound</label>
       <select id="ticking-sound" name="ticking-sound" bind:value={tickingSound}>
         <option value="None" selected>None</option>
-        <option value="defalut">Interstellar</option>
+        <option value="interstellar">Interstellar</option>
         <option value="slow">Ticking Slow</option>
         <option value="fast">Ticking Fast</option>
-        <option value="soft">Soft</option>
-        <option value="loud">Loud</option>
+        <!-- <option value="soft">Soft</option>
+        <option value="loud">Loud</option> -->
       </select>
 
       <label for="ticking-volume" class="volume-label">Volume</label>

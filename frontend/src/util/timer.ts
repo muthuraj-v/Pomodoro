@@ -1,16 +1,28 @@
 import { get } from "svelte/store";
 import {
-  activeTab,
-  pomodoro,
-  shortBreak,
-  longBreak,
   value,
   remainingTime,
   minutes,
   seconds,
   timerInterval,
+  tickingSound,
+  tickingVolume,
 } from "../components/store";
 
+import { playSound, stopSound } from "./sounds";
+
+function playTicking() {
+  const sound = get(tickingSound);
+  const volume = get(tickingVolume);
+
+  if (sound !== "None") {
+    playSound(sound, volume);
+  }
+}
+
+function stopTicking() {
+  stopSound();
+}
 function updateClock(ms: number) {
   const mins = Math.floor(ms / 60000);
   const secs = Math.floor((ms % 60000) / 1000);
@@ -26,8 +38,9 @@ export function startCountTown(durationMinutes: number) {
     const currentTime = new Date().getTime();
     const target = get(value);
     const left = target - currentTime;
-
+    playTicking();
     if (left <= 0) {
+      stopTicking();
       clearInterval(get(timerInterval)!);
       timerInterval.set(null);
       remainingTime.set(0);
@@ -51,7 +64,7 @@ export function pauseCountdown() {
   const now = new Date().getTime();
   const target = get(value);
   const left = target - now;
-
+  stopTicking();
   remainingTime.set(left);
   updateClock(left);
   console.log("Paused at:", left);
@@ -68,8 +81,10 @@ export function resumeCountdown() {
     const now = new Date().getTime();
     const target = get(value);
     const left = target - now;
+    playTicking();
 
     if (left <= 0) {
+      stopTicking();
       clearInterval(get(timerInterval)!);
       timerInterval.set(null);
       minutes.set(0);
@@ -87,7 +102,7 @@ export function resumeCountdown() {
 export function resetCountdown() {
   clearInterval(get(timerInterval)!);
   timerInterval.set(null);
-
+  stopTicking();
   value.set(null);
   remainingTime.set(null);
   minutes.set(0);
