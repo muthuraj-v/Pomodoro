@@ -14,3 +14,10 @@ export const autoStartBreaks = writable(false);
 
 export const tickingSound = writable("None");
 export const tickingVolume = writable(0);
+export const value = writable(0);
+export const remainingTime = writable(0);
+export const minutes = writable(0);
+export const seconds = writable(0);
+export const timerInterval = writable<ReturnType<typeof setInterval> | null>(
+  null
+);

@@ -5,19 +5,34 @@
     pomodoro,
     shortBreak,
     longBreak,
+    minutes,
+    seconds,
+    value,
+    remainingTime,
+    timerInterval,
     type TabType,
   } from "./store";
+
   import { get } from "svelte/store";
 
   const tabs: TabType[] = ["Pomodoro", "Short Break", "Long Break"];
+  function resetTimerToTab(tab: TabType) {
+    let time = 25;
+    if (tab === "Short Break") time = get(shortBreak);
+    else if (tab === "Long Break") time = get(longBreak);
+    else if (tab === "Pomodoro") time = get(pomodoro);
+
+    minutes.set(time);
+    seconds.set(0);
+    remainingTime.set(time * 60 * 1000);
+    value.set(null);
+  }
 
   function changeTab(tab: TabType) {
     const currentState = get(buttonClick);
-    if (currentState === "Pause" || currentState === "Resume") {
-      if (tab === "Pomodoro") pomodoro.set(25);
-      else if (tab === "Short Break") shortBreak.set(5);
-      else if (tab === "Long Break") longBreak.set(15);
 
+    if (currentState === "Pause" || currentState === "Resume") {
+      resetTimerToTab(tab);
       buttonClick.set("Start");
     }
 

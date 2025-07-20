@@ -1,5 +1,11 @@
 <script lang="ts">
   import {
+    pauseCountdown,
+    resetCountdown,
+    resumeCountdown,
+    startCountTown,
+  } from "../util/timer";
+  import {
     buttonClick,
     type buttonType,
     activeTab,
@@ -14,10 +20,19 @@
     isTrue = !isTrue;
     if ($buttonClick === "Start") {
       buttonClick.set(buttons[1]);
+      if ($activeTab === "Pomodoro") {
+        startCountTown($pomodoro);
+      } else if ($activeTab === "Short Break") {
+        startCountTown($shortBreak);
+      } else if ($activeTab === "Long Break") {
+        startCountTown($longBreak);
+      }
     } else if ($buttonClick === "Pause") {
       buttonClick.set(buttons[2]);
+      pauseCountdown();
     } else if ($buttonClick === "Resume") {
       buttonClick.set(buttons[1]);
+      resumeCountdown();
     } else {
       buttonClick.set(buttons[1]);
     }
@@ -25,14 +40,16 @@
   function reset() {
     if ($activeTab === "Pomodoro") {
       buttonClick.set("Start");
-
+      resetCountdown();
       pomodoro.set(25);
     } else if ($activeTab === "Short Break") {
       buttonClick.set("Start");
+      resetCountdown();
 
       shortBreak.set(5);
     } else if ($activeTab === "Long Break") {
       buttonClick.set("Start");
+      resetCountdown();
 
       longBreak.set(15);
     }
