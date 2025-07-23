@@ -3,8 +3,7 @@ name: Build Wails App (Cross-platform)
 on:
   push:
     tags:
-      - '*'  # Run on any version tag like v1.0.0
-
+      - '*'  
 env:
   NODE_OPTIONS: "--max-old-space-size=4096"
 
@@ -20,9 +19,6 @@ jobs:
           - name: "Pomodoro+"
             platform: "windows/amd64"
             os: "windows-latest"
-          - name: "Pomodoro+"
-            platform: "darwin/universal"
-            os: "macos-latest"
 
     runs-on: ${{ matrix.build.os }}
 
@@ -38,8 +34,8 @@ jobs:
         with:
           build-name: ${{ matrix.build.name }}
           build-platform: ${{ matrix.build.platform }}
-          package: false  # Set to true to create .dmg/.tar.gz/.zip if needed
-          go-version: '1.22'  # Update Go version
+          package: false  
+          go-version: '1.22'
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
