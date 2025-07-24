@@ -7,6 +7,7 @@ import {
   timerInterval,
   tickingSound,
   tickingVolume,
+  buttonClick,
 } from "../components/store";
 
 import { playSound, stopSound } from "./sounds";
@@ -51,6 +52,7 @@ export function startCountTown(durationMinutes: number) {
       minutes.set(0);
       seconds.set(0);
       console.log("Time's up!");
+      buttonClick.set("Start");
       return;
     }
 
@@ -97,6 +99,7 @@ export function resumeCountdown() {
       timerInterval.set(null);
       minutes.set(0);
       seconds.set(0);
+      buttonClick.set("Start");
       return;
     }
 
