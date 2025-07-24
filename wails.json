@@ -13,7 +13,7 @@
   "info": {
     "companyName": "Misty",
     "productName": "Pomodoro+",
-    "productVersion": "1.0.0",
+    "productVersion": "1.0.1",
     "copyright": "© 2025 Misty",
     "comments": "A focused Pomodoro timer built by Misty using Wails"
   }
