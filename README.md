@@ -50,3 +50,11 @@ Edit
 | Pomodoro    | 25 mins |
 | Short Break | 5 mins  |
 | Long Break  | 15 mins |
+
+## 🔮 Future TODOs
+
+-  **Auto break switching:** Automatically transition between Pomodoro, short break, and long break sessions without manual intervention.
+-  **Total repeat count:** Add support for specifying the number of Pomodoro cycles before a long break.
+-  **Auto advance:** Automatically move to the next session mode once the current timer finishes.
+-  **Additional improvements:** UI enhancements, customizable notifications, and user preferences.
+
